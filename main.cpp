@@ -2,41 +2,41 @@
 
 using namespace std;
 
-void BubbleSort(int arr[], int size){
-    for(int j = 0; j < size-1; j++){
-        
-        for(int i = 0; i < size - 1-j; i++){
-            if(arr[i] > arr[i+1]){
-               int temp = arr[i];
-               arr[i] = arr[i+1];
-               arr[i+1] = temp;
+
+void bubbleSort(int arr[],int size){
+    int counter = 0;
+    
+    for(int i = 0; i < size - 1; i++){
+        for(int j = 0; j < size - 1 -i; j++){
+            if(arr[j] > arr[j+1]){
+                swap(arr[j], arr[j+1]);
+                ++counter;
             }
+            
         }
     }
+    cout << counter;
 }
 
-
-
-int main() {
+int main(){
     
     int arr[100];
     int size;
     
-    cout << "Enter size:" << endl;
+    cout << "Enter the size of the array:" << endl;
     cin >> size;
     
-    cout << "Enter the values of array:" << endl;
+    cout << "Enter the values of the array:" << endl;
     for(int i = 0; i < size; i++){
         cin >> arr[i];
     }
-    cout << endl;
     
-    
-    BubbleSort(arr,size);
-    
+    bubbleSort(arr, size);
     for(int i = 0; i < size; i++){
         cout << arr[i] << " ";
     }
-   
+        
+    
     return 0;
+
 }
